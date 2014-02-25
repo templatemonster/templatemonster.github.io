@@ -30,21 +30,21 @@
 								<h3>Omit resource protocol</h3>
 								<p>Integrating resources from the external servers, omit protocols from the URL(http:// or https://)</p>
 
-								<pre><code class="right">
-									<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+								<code class="right">
+									&lt;script src="//www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>
 
 									.example {
 									  background: url(//www.google.com/images/example);
 									}
-								</code></pre>
+								</code>
 
-								<pre><code class="wrong">
-									<script src="http://www.google.com/js/gweb/analytics/autotrack.js"></script>
+								<code class="wrong">
+									&lt;script src="http://www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>
 
 									.example {
 									  background: url(http://www.google.com/images/example);
 									}
-								</code></pre>
+								</code>
 							</article>
 
 						</section>
