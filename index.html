@@ -2,13 +2,16 @@
 <html>
 	<head>
 		<title>TemplateMonster code style guide</title>
-
+		
 		<!-- CSS -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet"/>    
 		<link rel="stylesheet" href="style.css">
 
 		<!-- JS -->
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js"></script>
 	</head>
 	<body>		
 		<div class="container">
@@ -30,21 +33,24 @@
 								<h3>Omit resource protocol</h3>
 								<p>Integrating resources from the external servers, omit protocols from the URL(http:// or https://)</p>
 
-								<code class="right">
+								<pre class="brush: xml;">
 									&lt;script src="//www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>
-
+								</pre>
+								<pre class="brush: css;">
 									.example {
 									  background: url(//www.google.com/images/example);
 									}
-								</code>
+								</pre>
 
-								<code class="wrong">
+								<pre class="brush: xml;">
 									&lt;script src="http://www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>
+								</pre>
 
+								<pre class="brush: css;">
 									.example {
 									  background: url(http://www.google.com/images/example);
 									}
-								</code>
+								</pre>
 							</article>
 
 						</section>
