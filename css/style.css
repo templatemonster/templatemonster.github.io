@@ -1,0 +1,13 @@
+code {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid #eee;
+}
+.right {
+  background-color: #F7FDF7;
+  border-color: #60D94F;
+}
+.wrong {
+  background-color: #fdf7f7;
+  border-color: #d9534f;
+}

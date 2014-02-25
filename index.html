@@ -3,19 +3,64 @@
 	<head>
 		<title>TemplateMonster code style guide</title>
 
-		<!-- Latest compiled and minified CSS -->
+		<!-- CSS -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
 
-		<!-- Latest compiled and minified JavaScript -->
+		<!-- JS -->
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	</head>
-	<body>
-		<header>
-			<h1>TemplateMonster code style guide</h1>
-		</header>
-		<div id="content">
-			<div class="container">
-				
+	<body>		
+		<div class="container">
+			<header>
+				<hrgoup>
+					<h1>TemplateMonster code style guide</h1>
+					<h4>This document contains code style methodologies that should be used by TemplateMonster team members. It contains best practices and respectful team's recommendations.</h4>
+				</hrgoup>
+			</header>
+			<div id="content">
+				<div class="row">
+					<div class="col-sm-9">
+
+						<!-- General Recommendations -->
+						<section id="general-recommendations">
+							<h2>General Recommendations</h2>
+							
+							<article>
+								<h3>Omit resource protocol</h3>
+								<p>Integrating resources from the external servers, omit protocols from the URL(http:// or https://)</p>
+
+								<code class="right">
+									<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+
+									.example {
+									  background: url(//www.google.com/images/example);
+									}
+								</code>
+
+								<code class="wrong">
+									<script src="http://www.google.com/js/gweb/analytics/autotrack.js"></script>
+
+									.example {
+									  background: url(http://www.google.com/images/example);
+									}
+								</code>
+							</article>
+
+						</section>
+
+					</div>
+					<div class="col-sm-3">
+
+						<!-- Table of contents -->
+						<div class="toc">
+							<ul class="toc-list">
+								<li><a href="#general-recommendations">General Recommendations</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
