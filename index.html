@@ -5,6 +5,7 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="Stylesheet" href="styles/shCoreRDark.css"/>  
 		<link rel="Stylesheet" href="styles/shThemeRDark.css"/>  
 		<link rel="stylesheet" href="styles/style.css">
 
@@ -12,7 +13,8 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		<script src="scripts/shCore.js"></script>
-    <script src="scripts/shAutoloader.js"></script>
+		<script src="scripts/shBrushCss.js"></script>
+		<script src="scripts/shBrushXml.js"></script>
 	</head>
 	<body>		
 		<div class="container">
@@ -26,43 +28,355 @@
 				<div class="row">
 					<div class="col-sm-9">
 
+						<div class="alert alert-warning">Please note. Style guide is under construction.</div>
+
+						<article>
+							<h1><i>We code for our customers. Make sure your code easy to read, edit and support. Consider this your main goal.</i></h1>
+						</article>
+
+
 						<!-- General Recommendations -->
 						<section id="general-recommendations">
-							<h2>General Recommendations</h2>
+							<h2>General rules and recommendations</h2>
 							
-							<article>
+							<!-- Omit resource protocol -->
+							<article id="omit-protocol">
 								<h3>Omit resource protocol</h3>
 								<p>Integrating resources from the external servers, omit protocols from the URL(http: or https:)</p>
-
-								<pre class="brush: xml;">
+								
+								<pre class="brush: xml">
 									&lt;script src="//www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>
 								</pre>
-								<pre class="brush: css;">
+								
+								<pre class="brush: css">
 									.example {
-									  background: url(//www.google.com/images/example);
+										background: url(//www.google.com/images/example);
 									}
 								</pre>
+							</article>
+							
+							<!-- Indentation -->
+							<article id="indentation">
+								<h3>Indentation</h3>
+								<p>Indent only using tabs. Do not use spaces.</p>
+							</article>
 
-								<pre class="brush: xml;">
-									&lt;script src="http://www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>
+							<!-- Formatting -->
+							<article id="formatting">
+								<h3>Formatting</h3>
+								<p>Each element should be placed on a single line (exception for the inline elements). Always use indentation to show correct elements nesting</p>
+
+								<pre class="brush: xml">
+									<blockquote>
+									  <p><em>Space</em>, the final frontier.</p>
+									</blockquote>
+								</pre>
+								
+								<pre class="brush: xml">
+									<table>
+									  <thead>
+									    <tr>
+									      <th scope="col">Income</th>
+									      <th scope="col">Taxes</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									    <tr>
+									      <td>$ 5.00</td>
+									      <td>$ 4.50</td>
+									    </tr>
+									  </tbody>
+									</table>
 								</pre>
 
-								<pre class="brush: css;">
-									.example {
-									  background: url(http://www.google.com/images/example);
+								<pre class="brush: css">
+									@media screen, projection {
+
+									  html {
+									    background: #fff;
+									    color: #444;
+									  }
+
 									}
 								</pre>
+							</article>
+						</section>
+
+
+						<!-- HTML -->
+						<section id="html">
+							<h2>HTML</h2>
+
+							<!-- html validation -->
+							<article id="html_validation">
+								<h3>HTML validation</h3>
+								<p>HTML markup should be valid. Use <a href="http://validator.w3.org/nu/">this tool</a> to validate. There should be no errors in our markup. <br><i>Exceptions are validation errors in CMS's core files.</i></p>
+							</article>
+
+							<!-- capitalization -->
+							<article id="capitalization">
+								<h3>Capitalization</h3>
+								<p>Do not use capitalization it element names, class names, IDs, color HEX codes etc. All elements should be lowercase. Exception - CDATA</p>
+
+								<pre class="brush: xml">
+									<img src="google.png" alt="Google">
+								</pre>
+
+								<pre class="brush: css">
+									color: #e5e5e5;
+								</pre>
+							</article>
+
+							<!-- doctype -->
+							<article id="doctype">
+								<h3>Doctype</h3>
+								<p>Use HTML5 syntax to define doctype</p>
+
+								<pre class="brush: xml">
+									&lt;!DOCTYPE html>
+								</pre>
+							</article>
+
+							<!-- semantics -->
+							<article id="semantics">
+								<h3>Semantics</h3>
+								<p>Make sure to use semantically correct HTML elements.</p>
+								<table class="table">
+									<tr>
+										<td>Heading</td>
+										<td>h1 - h5</td>
+									</tr>
+									<tr>
+										<td>Paragraph</td>
+										<td>p</td>
+									</tr>
+									<tr>
+										<td>Makred italic</td>
+										<td>em (i -for visual marking, not logical)</td>
+									</tr>
+									<tr>
+										<td>Marked bold</td>
+										<td>strong (b -for visual marking, not logical)</td>
+									</tr>
+									<tr>
+										<td>Quotes</td>
+										<td>cite - small blocks, inline elements. <br> 
+										blockquote - quote blocks.</td>
+									</tr>
+									<tr>
+										<td>Lists</td>
+										<td>ol / ul</td>
+									</tr>
+									<tr>
+										<td>Definition lists</td>
+										<td>dl > td + dd</td>
+									</tr>
+								</table>
+							</article>
+
+							<!-- type attribute -->
+							<article id="type_attributes">
+								<h3>Type Attributes</h3>
+								<p>Do not use type attributes for style sheets (unless not using CSS) and scripts (unless not using JavaScript).</p>
+
+								<pre class="brush: xml">
+									<link rel="stylesheet" href="//www.google.com/css/maia.css">
+
+									<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+								</pre>
+							</article>
+
+							<!-- alt attribute -->
+							<article id="alt_attributes">
+								<h3>Multimedia Fallback (Alt Attributes)</h3>
+								<p>Provide alternative contents for multimedia. Define alt attribute values for any multimedia element you use</p>
+
+								<pre class="brush: xml">
+									<img src="spreadsheet.png" alt="Spreadsheet screenshot.">
+								</pre>							
+							</article>
+
+							<!-- id and class usage -->
+							<article id="id_class_usage">
+								<h3>ID and class usage</h3>
+								<p>Use ID's only to define key elements of the page or elements used as initialization selectors in JS scripts. </p>
 							</article>
 
 						</section>
 
+
+
+						<!-- CSS -->
+						<section id="css">
+							<h2>CSS</h2>
+
+							<!-- CSS validation -->
+							<article id="css_validation">
+								<h3>CSS validation</h3>
+								<p>CSS styles should be valid. Use <a href="http://jigsaw.w3.org/css-validator">this tool</a> to validate. </p>
+							</article>
+							
+							<!-- formatting -->
+							<article id="formatting">
+								<h3>Formatting</h3>
+								<p>Remember, your code should be easy to manage.</p>
+								<ul>
+									<li>Each selector should be on a single line</li>
+									<li>Each property should be placed on a single line</li>
+									<li>Style declaration should be indented to one tab from the selector</li>
+									<li>In case of using multiple selectors, each selector should be on  a single line</li>
+									<li>Do not use multiple IDs in style declarations</li>
+								</ul>
+
+								<pre class="brush: css">
+									.class,
+									tag,
+									#id{
+										color: #fff;
+										font-size: 12px;
+										width: 100%;
+									}
+								</pre>
+							</article>
+
+							<!-- Selector names -->
+							<article id="selector_names">
+								<h3>Selector names</h3>
+								<p>Selector names should be logical and clear. Selector names should be as short as possible but as long as necessary. Use general names. Consider your code to be used in other projects.</p>
+
+								<pre class="brush: css">
+									/* Not recommended: meaningless */
+									#yee-1901 {}
+
+									/* Not recommended: presentational */
+									.button-green {}
+									.clear {}
+								</pre>									
+
+								<pre class="brush: css">
+									/* Recommended: specific */
+									#gallery {}
+									#login {}
+									.video {}
+
+									/* Recommended: generic */
+									.aux {}
+									.alt {}								
+								</pre>	
+							</article>
+
+							<!-- Type selectors -->
+							<article id="type_selectors">
+								<h3>Type selectors</h3>
+								<p>Do not use tag selectors with classes or ids. </p>
+
+								<pre class="brush: css">
+									/* Not recommended: meaningless */
+									ul#example {}
+									div.error {}
+								</pre>									
+
+								<pre class="brush: css">
+									/* Recommended: specific */
+									#example {}
+									.error {}								
+								</pre>								
+							</article>
+
+							<!-- Units -->
+							<article id="units">
+								<h3>Units</h3>
+								<p>Do not add units if value is zero.</p>		
+
+								<pre class="brush: css">
+									margin: 0;
+									padding: 0;
+								</pre>	
+							</article>
+
+							<!-- rule separation -->
+							<article id="rule_separation">
+								<h3>Rule separation</h3>
+								<p>Separate rules by new line.</p>	
+								<pre class="brush: xml">
+									html {
+									  background: #fff;
+									}
+
+									body {
+									  margin: auto;
+									  width: 50%;
+									}								
+								</pre>	
+							</article>
+						</section>
+
+
+						<!--  -->
+						<section id="explanatory">
+							<h2>Used materials</h2>
+							<p>In this code style guide we used our experience along with best practices of the respectful developers and developer teams. List of used materials below:</p>
+							<ol>
+								<li><a href="http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml">Google HTML/CSS style guide</a> </li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ol>
+						</section>
+
+
+							<!--  -->
+							<article id="">
+								<h3></h3>
+								<p></p>								
+							</article>
+
+
 					</div>
+
 					<div class="col-sm-3">
 
 						<!-- Table of contents -->
-						<div class="toc">
+						<div class="toc" data-spy="affix" data-offset-top="0">
 							<ul class="toc-list">
-								<li><a href="#general-recommendations">General Recommendations</a></li>
+
+								<!-- General -->
+								<li>
+									<a href="#general-recommendations">General Recommendations</a>
+									<ul>
+										<li><a href="#omit-protocol">Omit resource protocol</a></li>
+										<li><a href="#indentation">Indentation</a></li>
+										<li><a href="#formatting">Formatting</a></li>
+									</ul>
+								</li>
+
+								<!-- HTML -->
+								<li>
+									<a href="#html">HTML</a>
+									<ul>
+										<li><a href="#html_validation">HTML validation</a></li>
+										<li><a href="#capitalization">Capitalization</a></li>
+										<li><a href="#doctype">Doctype</a></li>
+										<li><a href="#type_attributes">Type Attributes</a></li>
+										<li><a href="#alt_attributes">Alt Attributes</a></li>
+										<li><a href="#id_class_usage">ID and class usage</a></li>
+									</ul>
+								</li>		
+
+								<!-- CSS -->
+								<li>
+									<a href="#css">CSS</a>
+									<ul>
+										<li><a href="#css_validation">CSS validation</a></li>
+										<li><a href="#formatting">Formatting</a></li>
+										<li><a href="#selector_names">Selector names</a></li>
+										<li><a href="#type_selectors">Type selectors</a></li>
+										<li><a href="#units">Units</a></li>
+										<li><a href="#rule_separation">Rule separation</a></li>
+									</ul>
+								</li>
+
 							</ul>
 						</div>
 
@@ -70,5 +384,9 @@
 				</div>
 			</div>
 		</div>
+
+		<script>
+			SyntaxHighlighter.all()
+		</script>
 	</body>
 </html>
