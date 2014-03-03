@@ -581,12 +581,62 @@
 									$company = 'Template' . ' ' . 'Monster';
 								</pre>
 								<p>When concatenating strings with the "." operator, it is encouraged to break the statement into multiple lines to improve readability. In these cases, each successive line should be padded with single tab:</p>
+								<pre class="brush: php">
+									$sql = "SELECT `id`, `name` FROM `people` "
+										. "WHERE `name` = 'Susan' "
+										. "ORDER BY `name` ASC ";
+								</pre>
 							</article>
-							<pre class="brush: php">
-								$sql = "SELECT `id`, `name` FROM `people` "
-									. "WHERE `name` = 'Susan' "
-								  . "ORDER BY `name` ASC ";
-							</pre>
+
+
+							<!-- Comments -->
+							<article id="commenting">
+								<h3>Commenting</h3>
+								<p>To ensure the possibility of <a href="http://phpdoc.org/">phpDocumentor</a> usage for building documentation, commenting in PHP should be done using DocComment/DocBlock syntax. This is a special type of comment which starts with /**, ends with */ and may contain any number of lines in between. Every line should start with an asterisk, which is aligned with the first asterisk of the opening clause.</p>
+
+								<pre class="brush: php">
+								/** Single line comment */
+
+								/**
+								 * Multiline comment
+								 */
+								</pre>
+
+								<p><b>DocBlock</b> is a DocComment containing a single PHPDoc and represents the basic in-source representation. <b>PHPDoc</b> is a section of documentation which provides information on several aspects of Structural Elements.</p>
+
+								<p><b>Tags</b> must be present in the DocBlocks. Tags are a type of specialized information (meta-data) about the associated element. @return is a tag in the example below.</p>
+
+								<pre class="brush: php">
+								/**	
+								  * Returns the name of this object.
+								  *
+								  * @return string
+								  */								
+								</pre>
+
+								<ul>
+									<li><a href="http://phpdoc.org/docs/latest/glossary.html">phpDocumentor glossary</a></li>
+									<li><a href="http://phpdoc.org/docs/latest/guides/docblocks.html#list-of-tags">List of tags</a></li>
+								</ul>
+
+								<p>Example of function DocBlock: </p>
+								<pre class="brush: php">
+								 /**
+								  * A summary informing the user what the associated element does.
+								  *
+								  * A *description*, that can span multiple lines, to go _in-depth_ into the details of this
+								  * element and to provide some background information or textual references.
+								  *
+								  * @param string $myArgument With a *description* of this argument, these may also
+								  *    span multiple lines.
+								  *
+								  * @return void
+								  */
+								  function myFunction($myArgument){}
+  								</pre>
+								
+							</article>
+
 
 						</section>
 
@@ -599,6 +649,7 @@
 								<li><a href="http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml">Google HTML/CSS style guide</a> </li>
 								<li><a href="http://make.wordpress.org/core/handbook/coding-standards/php/">PHP Coding Standards from WordPess</a></li>
 								<li><a href="http://framework.zend.com/manual/1.12/en/coding-standard.coding-style.html">Zend Framework Coding Style</a></li>
+								<li><a href="http://phpdoc.org/docs/latest/index.html">phpDocumentor documentation</a></li>
 							</ol>
 						</section>
 
@@ -671,6 +722,7 @@
 										<li><a href="#ternary_operator">Ternary Operator</a></li>
 										<li><a href="#yoda_conditions">Yoda Conditions</a></li>
 										<li><a href="#string_concatenation">String Concatenation</a></li>
+										<li><a href="#commenting">Commenting</a></li>
 									</ul>
 								</li>
 
