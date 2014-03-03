@@ -15,6 +15,7 @@
 		<script src="scripts/shCore.js"></script>
 		<script src="scripts/shBrushCss.js"></script>
 		<script src="scripts/shBrushXml.js"></script>
+		<script src="scripts/shBrushPhp.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -311,6 +312,8 @@
 							</article>
 						</section>
 
+
+
 						<!-- PHP -->
 						<section id="php">
 							<h2>PHP</h2>
@@ -318,31 +321,37 @@
 							<!-- Clean Code -->
 							<article id="clean_code">
 								<h3>Clean Code</h3>
-								<p>Themes must not have any PHP notices, warnings, or errors - please develop with errors enabled.</p>
+								<p>Themes must not have any PHP notices, warnings, or errors - please develop with errors enabled. In php.ini make sure to have display_errors=On and error_reporting=E_ALL & ~E_STRICT </p>
 							</article>
+
 
 							<!-- single_and_double_quotes -->
 							<article id="single_and_double_quotes">
 								<h3>Single and Double Quotes</h3>
 								<p>Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									echo '&lt;a href="/static/link" title="Yeah yeah!"&gt;Link name&lt;/a&gt;';
 									echo "&lt;a href='$link' title='$linktitle'&gt;$linkname&lt;/a&gt;";
 								</pre>
+								<p>When a literal string itself contains apostrophes, it is permitted to demarcate the string with quotation marks or "double quotes". This is especially useful for SQL statements:</p>
+								<pre class="brush: php">
+									$sql = "SELECT `id`, `name` from `people` WHERE `name`='Fred' OR `name`='Susan'";
+								</pre>
 							</article>
+
 
 							<!-- Indentation -->
 							<article id="php_indentation">
 								<h3>Indentation</h3>
-								<p>Your indentation should always reflect logical structure. Use <b>real tabs</b> and <b>not spaces</b>, as this allows the most flexibility across clients.</p>
-								<pre class="brush: xml">
+								<p>Your indentation should always reflect logical structure. Use <b>real tabs</b> and <b>not spaces</b>, as this allows the most flexibility across editors.</p>
+								<pre class="brush: php">
 									[tab]$foo   = 'somevalue';
 									[tab]$foo2  = 'somevalue2';
 									[tab]$foo34 = 'somevalue3';
 									[tab]$foo5  = 'somevalue4';
 								</pre>
 								<p>For associative arrays, values should start on a new line. Note the comma after the last array item: this is recommended because it makes it easier to change the order of the array, and makes for cleaner diffs when new items are added.</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									$my_array = array(
 									[tab]'foo'   => 'somevalue',
 									[tab]'foo2'  => 'somevalue2',
@@ -353,11 +362,25 @@
 								<p><b>Rule of thumb</b>: Tabs should be used at the beginning of the line for indentation, while spaces can be used mid-line for alignment.</p>
 							</article>
 
+
+							<!-- Variable substitution -->
+							<article id="variable_subst">
+								<h3>Variable Substitution</h3>
+								<p>Variable substitution is permitted using either of these forms:</p>
+
+								<pre class="brush: php">
+									$greeting = "Hello $name, welcome back!";
+
+									$greeting = "Hello {$name}, welcome back!";
+								</pre>
+							</article>
+
+
 							<!-- Brace Style -->
 							<article id="brace_style">
 								<h3>Brace Style</h3>
 								<p>Braces shall be used for all blocks in the style shown here:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									if ( condition ) {
 										func1();
 										func2();
@@ -369,7 +392,7 @@
 									}
 								</pre>
 								<p>Braces should always be used, even when they are not required:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									if ( condition ) {
 										func0();
 									}
@@ -387,33 +410,36 @@
 								</pre>
 							</article>
 
+
 							<!-- No Shorthand PHP Tags -->
 							<article id="no_short_php_tags">
 								<h3>No Shorthand PHP Tags</h3>
 								<p><b>Important</b>: Never use shorthand PHP start tags. Always use full PHP tags</p>
 								<p>Correct:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									&lt;?php ... ?&gt;
 									&lt;?php echo $var; ?&gt;
 								</pre>
 								<p>Incorrect:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									&lt;? ... ?&gt;
 									&lt;?= $var ?&gt;
 								</pre>
 							</article>
 
+
 							<!-- Remove Trailing Spaces -->
 							<article id="remove_trail_spaces">
 								<h3>Remove Trailing Spaces</h3>
-								<p>Remove trailing whitespace at the end of each line of code. <span style="color:red">Especially after the closing PHP tag at the end of a file</span>.</p>
+								<p>Remove trailing whitespace at the end of each line of code. Especially after the closing PHP tag at the end of a file.</p>
 							</article>
+
 
 							<!-- Space Usage -->
 							<article id="space_usage">
 								<h3>Space Usage</h3>
 								<p>Always put spaces after commas, and on both sides of <i>logical</i>, <i>comparison</i>, <i>string</i> and <i>assignment</i> operators.</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									x == 23
 									foo && bar
 									! foo
@@ -422,29 +448,29 @@
 									$term .= 'X'
 								</pre>
 								<p>Put spaces on both sides of the opening and closing parenthesis of <i>if</i>, <i>elseif</i>, <i>foreach</i>, <i>for</i>, and <i>switch</i> blocks.</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									foreach ( $foo as $bar ) { ...
 								</pre>
 								<p>When defining a function, do it like so:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									function my_function( $param1 = 'foo', $param2 = 'bar' ) { ...
 								</pre>
 								<p>When calling a function, do it like so:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									my_function( $param1, func_param( $param2 ) );
 								</pre>
 								<p>When performing logical comparisons, do it like so:</p>
-								<pre class="brush: xml">
-									if ( ! $foo ) { ...
+								<pre class="brush: php">
+									if ( !$foo ) { ...
 								</pre>
 								<p>When <a href="http://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting" target="_blank">type casting</a>, do it like so:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									foreach ( (array) $foo as $bar ) { ...
 
 									$foo = (boolean) $bar;
 								</pre>
 								<p>When referring to array items, only include a space around the index if it is a variable, for example:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									$x = $foo['bar']; // correct
 									$x = $foo[ 'bar' ]; // incorrect
 
@@ -456,34 +482,36 @@
 								</pre>
 							</article>
 
+
 							<!-- Naming Conventions -->
 							<article id="name_conventions">
 								<h3>Naming Conventions</h3>
 								<p>Use lowercase letters in variable and function names (<code>never camelCase</code>). Separate words via underscores. Don't abbreviate variable names un-necessarily; let the code be unambiguous and self-documenting.</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									function some_name( $some_variable ) { [...] }
 								</pre>
 								<p>Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									class Simple_Class { [...] }
 									class Extend_Class extends Simple_Class { [...] }
 								</pre>
 								<p>Files should be named descriptively using lowercase letters. Hyphens should separate words.</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									my-plugin-name.php
 								</pre>
 								<p>Class file names should be based on the class name with <code>class-</code> prepended and the underscores in the class name replaced with hyphens, for example <code>Basic_Category</code> becomes:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									class-basic-category.php
 								</pre>
 								<p>This file-naming standard is for all current and new files with classes.</p>
 							</article>
 
+
 							<!-- Self-Explanatory Flag Values for Function Arguments -->
 							<article id="flag_values_func_args">
 								<h3>Self-Explanatory Flag Values for Function Arguments</h3>
 								<p>Prefer string values to just <code>true</code> and <code>false</code> when calling functions.</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									// Incorrect
 									function eat( $what, $slowly = true ) {
 									...
@@ -493,7 +521,7 @@
 									eat( 'dogfood', false ); // what does false mean? The opposite of true?
 								</pre>
 								<p>Since PHP doesn't support named arguments, the values of the flags are meaningless, and each time we come across a function call like the examples above, we have to search for the function definition. The code can be made more readable by using descriptive string values, instead of booleans.</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									// Correct
 									function eat( $what, $speed = 'slowly' ) {
 									...
@@ -504,22 +532,24 @@
 								</pre>
 							</article>
 
+
 							<!-- Ternary Operator -->
 							<article id="ternary_operator">
 								<h3>Ternary Operator</h3>
 								<p>Ternary operators are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using <code>! empty()</code>, as testing for false here is generally more intuitive.)</p>
 								<p>For example:</p>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									// (if statement is true) ? (do this) : (else, do this);
 									$musictype = ( 'jazz' == $music ) ? 'cool' : 'blah';
 									// (if field is not empty ) ? (do this) : (else, do this);
 								</pre>
 							</article>
 
+
 							<!-- Yoda Conditions -->
 							<article id="yoda_conditions">
 								<h3>Yoda Conditions</h3>
-								<pre class="brush: xml">
+								<pre class="brush: php">
 									if ( true == $the_force ) {
 										$victorious = you_will( $be );
 									}
@@ -528,19 +558,47 @@
 								<p>In the above example, if you omit an equals sign (admit it, it happens even to the most seasoned of us), you'll get a parse error, because you can't assign to a constant like <code>true</code>. If the statement were the other way around <code>( $the_force = true )</code>, the assignment would be perfectly valid, returning <code>1</code>, causing the if statement to evaluate to <code>true</code>, and you could be chasing that bug for a while.</p>
 								<p>But Yoda conditions for &lt;, >, &lt;= or &gt;= are significantly more difficult to read and are best avoided.</p>
 							</article>
+
+
+							<!-- Variable substitution -->
+							<article id="variable_subst">
+								<h3>Variable Substitution</h3>
+								<p>Variable substitution is permitted using either of these forms:</p>
+
+								<pre class="brush: php">
+									$greeting = "Hello $name, welcome back!";
+
+									$greeting = "Hello {$name}, welcome back!";
+								</pre>
+							</article>
+
+
+							<!-- String Concatenation -->
+							<article id="string_concatenation">
+								<h3>String Concatenation</h3>
+								<p>Strings must be concatenated using the "." operator. A space must always be added before and after the "." operator to improve readability:</p>
+								<pre class="brush: php">
+									$company = 'Template' . ' ' . 'Monster';
+								</pre>
+								<p>When concatenating strings with the "." operator, it is encouraged to break the statement into multiple lines to improve readability. In these cases, each successive line should be padded with single tab:</p>
+							</article>
+							<pre class="brush: php">
+								$sql = "SELECT `id`, `name` FROM `people` "
+									. "WHERE `name` = 'Susan' "
+								  . "ORDER BY `name` ASC ";
+							</pre>
+
 						</section>
 
 
-						<!--  -->
+						<!-- Explanatory -->
 						<section id="explanatory">
 							<h2>Used materials</h2>
 							<p>In this code style guide we used our experience along with best practices of the respectful developers and developer teams. List of used materials below:</p>
 							<ol>
 								<li><a href="http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml">Google HTML/CSS style guide</a> </li>
 								<li><a href="http://make.wordpress.org/core/handbook/coding-standards/php/">PHP Coding Standards from WordPess</a></li>
-								<li></li>
-								<li></li>
-								<li></li>
+								<li><a href="http://framework.zend.com/manual/1.12/en/coding-standard.coding-style.html">Zend Framework Coding Style</a></li>
 							</ol>
 						</section>
 
@@ -603,6 +661,7 @@
 										<li><a href="#clean_code">Clean Code</a></li>
 										<li><a href="#single_and_double_quotes">Single and Double Quotes</a></li>
 										<li><a href="#php_indentation">Indentation</a></li>
+										<li><a href="#variable_subst">Variable Substitution</a></li>
 										<li><a href="#brace_style">Brace Style</a></li>
 										<li><a href="#no_short_php_tags">No Shorthand PHP Tags</a></li>
 										<li><a href="#remove_trail_spaces">Remove Trailing Spaces</a></li>
@@ -611,7 +670,13 @@
 										<li><a href="#flag_values_func_args">Self-Explanatory Flag Values for Function Arguments</a></li>
 										<li><a href="#ternary_operator">Ternary Operator</a></li>
 										<li><a href="#yoda_conditions">Yoda Conditions</a></li>
+										<li><a href="#string_concatenation">String Concatenation</a></li>
 									</ul>
+								</li>
+
+								<!-- Used materials -->
+								<li>
+									<a href="explanatory">Used materials</a>
 								</li>
 
 							</ul>
