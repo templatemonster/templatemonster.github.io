@@ -20,10 +20,8 @@
 	<body>
 		<div class="container">
 			<header>
-				<hrgoup>
 					<h1>TemplateMonster code style guide</h1>
-					<h4>This document contains code style methodologies that should be used by TemplateMonster team members. It contains best practices and respectful team's recommendations.</h4>
-				</hrgoup>
+					<p>This document contains code style methodologies that should be used by TemplateMonster team members. It contains our best practices and recommendations from respectful professional teams all over the world.</p>
 			</header>
 			<div id="content">
 				<div class="row">
@@ -31,8 +29,8 @@
 
 						<div class="alert alert-warning">Please note. Style guide is under construction.</div>
 
-						<article>
-							<h1><i>We code for our customers. Make sure your code easy to read, edit and support. Consider this your main goal.</i></h1>
+						<article class="jumbotron">
+							<h3><i>We code for our customers. Make sure your code is easy to read, edit and support. Consider this your main goal.</i></h3>
 						</article>
 
 
@@ -173,7 +171,7 @@
 									</tr>
 									<tr>
 										<td>Definition lists</td>
-										<td>dl > td + dd</td>
+										<td>dl > dt + dd</td>
 									</tr>
 								</table>
 							</article>
@@ -316,6 +314,8 @@
 									<li>"-" - to separate words in class names</li>
 								</ul>
 
+								<p>Assigning classes you need to avoid adding dozens of different classes to a single element. Reduce number of classes if possible without affecting code flexibility and ease. </p>
+
 							</article>
 
 
@@ -354,7 +354,7 @@
 							<article id="css_rule_separation">
 								<h3>Rule separation</h3>
 								<p>Separate rules by new line.</p>
-								<pre class="brush: xml">
+								<pre class="brush: css">
 									html {
 									  background: #fff;
 									}
@@ -367,10 +367,64 @@
 							</article>
 
 
-							<!-- Class naming -->
-							<article id="css_naming">
-								<h3>Naming</h3>
-								<p></p>
+							<!-- Commenting -->
+							<article id="css_commenting">
+								<h3>Commenting</h3>
+								<p>Use comments to separate style declaration sections. To add more logic to the comments use three variants:</p>
+
+								<p>1. Generic style declaration sections</p>
+								<pre class="brush: css">
+								/*========================================================
+								                    1. Typography
+								=========================================================*/
+
+								/*========================================================
+								                    2. Main layout styles
+								=========================================================*/
+								</pre>
+
+								<p>2. More specific sections</p>
+								<pre class="brush: css">
+								/* Product listings 
+								========================================================*/
+
+								/* Checkout Page 
+								========================================================*/
+								</pre>
+
+								<p>3. Specific elements, inline comments</p>
+								<pre class="brush: css">
+								//Product image
+
+								//Post title
+								</pre>
+
+								<p>4. Comments for logically independent modules/elements</p>
+								<pre class="brush: css">
+								/* QR Code */
+
+								/* Back to top */
+
+								/* Modal */
+								</pre>
+
+								<p>Highly recommended to add table of contents to the top the LESS/CSS file. Only generic section names should be added to the TOC. For example: </p>
+
+								<pre class="brush: css">
+								/* Content:
+								  1. Global
+								  2. Basic elements/styles
+								  3. Typography
+								  4. Lists and tags
+								  5. Main layout elements
+								  6. Main layout styles
+								  7. Error styles
+								  8. Media query styles
+								  9. Utility classes
+								  10. Site Maintenance masking
+								*/
+								</pre>
+
 							</article>
 
 						</section>
@@ -384,7 +438,7 @@
 							<!-- Clean Code -->
 							<article id="clean_code">
 								<h3>Clean Code</h3>
-								<p>Themes must not have any PHP notices, warnings, or errors - please develop with errors enabled. In php.ini make sure to have display_errors=On and error_reporting=E_ALL & ~E_STRICT </p>
+								<p>Themes must not have any PHP notices, warnings, or errors - please develop with errors enabled. In php.ini make sure to have <b>display_errors=On</b> and <b>error_reporting=E_ALL & ~E_STRICT</b> </p>
 							</article>
 
 
@@ -712,6 +766,7 @@
 								<li><a href="http://make.wordpress.org/core/handbook/coding-standards/php/">PHP Coding Standards from WordPess</a></li>
 								<li><a href="http://framework.zend.com/manual/1.12/en/coding-standard.coding-style.html">Zend Framework Coding Style</a></li>
 								<li><a href="http://phpdoc.org/docs/latest/index.html">phpDocumentor documentation</a></li>
+								<li><a href="http://operatino.github.io/MCSS/">MCSS</a></li>
 							</ol>
 						</section>
 
@@ -764,6 +819,7 @@
 										<li><a href="#type_selectors">Type selectors</a></li>
 										<li><a href="#units">Units</a></li>
 										<li><a href="#css_rule_separation">Rule separation</a></li>
+										<li><a href="#css_commenting">Commenting</a></li>
 									</ul>
 								</li>
 
