@@ -1,4 +1,4 @@
 templatemonster.github.io
 =========================
 
-Методология написания кода команды 
+Code styling methodology. TemplateMonster team
