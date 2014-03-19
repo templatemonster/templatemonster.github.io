@@ -111,6 +111,71 @@
 								</pre>
 
 							</article>
+
+							<!-- Markup rules -->
+							<article id="markup_rules">
+								<h3>Markup rules</h3>
+								<p>Creating webpage markup, along with the main code style guide principles you should remeber that parts of your code can be used in other projects by yourself or your team members. Make sure block elements are as independent as possible. Follow these rules: </p>
+
+								<ul>
+									<li>Each page element markup and style rules should be independent and can be used anywhere on the page without losing styles. </li>
+									<li>Assign classes to key elements to avoid selector nesting</li>
+									<li>You can use short names for the elements and classes. Make sure your abbreviations are readable and easy to understand</li>
+								</ul>
+
+								<p>For example a newsletter block: </p>
+								<pre class="brush: xml">
+									<div class="module module__newsletter">
+										<div class="mod_header">
+											<h3>Newsletter</h3>
+										</div>
+										<div class="mod_content">
+											<form class="form form__newsletter" action="" method="">
+												<p>
+													<i>Please input your email address</i>
+												</p>
+												<input class="input__email" type="email" name="email" placeholder="Email address"/>
+												<button class="btn" type="submit">Submit</button>
+											</form>
+										</div>
+									</div>
+								</pre>
+
+								<p>CSS rules for newsletter block:</p>
+
+								<pre class="brush: css">
+									.module__newletter{}
+									.module__newletter .mod_header{}
+									.module__newletter .mod_header h3{}
+
+									.module__newletter .mod_content{}
+
+									.form__newsletter{}
+									.form__newsletter p{}
+									.form__newsletter p i{}
+									.form__newsletter .input__email{}
+									.form__newsletter .btn{}
+									.form__newsletter .btn:hover{}
+								</pre>
+
+							</article>	
+
+							<!-- abbreviations -->
+							<article id="abbreviation">
+								<h3>Abbreviations</h3>
+								<p>You can use shortands and abbreviations to reduce class names and selectors. make sure your abbreviations are readable and easy to understand. For example</p>
+
+								<ul>
+									<li><b>mod</b>- module</li>
+									<li><b>btn</b>- button</li>
+									<li><b>add</b>- additional</li>
+									<li><b>bg</b>- background</li>
+									<li><b>col</b>- column/li>
+									<li><b>img</b>- image</li>
+									<li><b>vid</b>- video</li>
+									<li><b>scr</b>- screen</li>
+								</ul>
+							</article>
 						</section>
 
 
@@ -363,6 +428,22 @@
 								</pre>
 							</article>
 
+
+							<!-- Type selectors -->
+							<article id="selector_nesting">
+								<h3>Nesting</h3>
+								<p>Assigning CSS rules use nested selectors carefully. Creating long nesting chains can make your code hard to read. Avoid using more than 3 elements in nested selectors. Add classes to the key markup elements to reduce nisted selectors. </p>
+
+								<pre class="brush: css">
+									.module__modifier{}
+									.module__modifier .mod_header{}
+									.module__modifier .mod_header h3{}
+
+									.form__modifier .input__email{}
+									.form__modifier .btn{}
+									.form__modifier .btn:hover{}
+								</pre>
+							</article>
 
 							<!-- Units -->
 							<article id="units">
@@ -818,6 +899,8 @@
 										<li><a href="#omit-protocol">Omit resource protocol</a></li>
 										<li><a href="#indentation">Indentation</a></li>
 										<li><a href="#formatting">Formatting</a></li>
+										<li><a href="#markup_rules">Markup rules</a></li>
+										<li><a href="#abbreviation">Abbreviation</a></li>
 									</ul>
 								</li>
 
