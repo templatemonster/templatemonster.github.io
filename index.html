@@ -101,11 +101,11 @@
 
 								<p>Separate logically independent blocks of code with new lines</p>
 								<pre class="brush: xml">
-									<article class="acticle-1">
+									<article class="blog-post">
 										...
 									</article>
 
-									<article class="acticle-2">
+									<article class="blog-post">
 										...
 									</article>
 								</pre>
@@ -166,14 +166,14 @@
 								<p>You can use shortands and abbreviations to reduce class names and selectors. make sure your abbreviations are readable and easy to understand. For example</p>
 
 								<ul>
-									<li><b>mod</b>- module</li>
-									<li><b>btn</b>- button</li>
-									<li><b>add</b>- additional</li>
-									<li><b>bg</b>- background</li>
-									<li><b>col</b>- column</li>
-									<li><b>img</b>- image</li>
-									<li><b>vid</b>- video</li>
-									<li><b>scr</b>- screen</li>
+									<li><b>mod</b> - module</li>
+									<li><b>btn</b> - button</li>
+									<li><b>add</b> - additional</li>
+									<li><b>bg</b> - background</li>
+									<li><b>col</b> - column</li>
+									<li><b>img</b> - image</li>
+									<li><b>vid</b> - video</li>
+									<li><b>scr</b> - screen</li>
 								</ul>
 							</article>
 						</section>
@@ -290,8 +290,8 @@
 								<p>HTML markup blocks should be separated from each other and provided with comments where necessary.</p>
 
 								<pre class="brush: xml">
-									<!-- article 1 -->
-									<article class="acticle-1">
+									<!-- User info -->
+									<article class="user-info">
 										...
 									</article>
 								</pre>
@@ -360,6 +360,13 @@
 									.aux {}
 									.alt {}
 								</pre>
+
+								<p>In case you need to add some specific properties to default elements with existing styling you can use technical classes like <b>style-#</b> or <b>var-#</b> where # is a number of used style class. </p>
+
+								<pre class="brush: css">
+									.block .block__categories .style-1{}
+								</pre>
+
 
 								<h4>Keywords</h4>
 								<p>To add more logic to the selector names use keywords. Keywords should be related to the functionality of the selector. For example: module, widget, cart, checkout, page</p>
