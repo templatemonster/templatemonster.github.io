@@ -5,9 +5,10 @@
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<link rel="Stylesheet" href="styles/shCoreRDark.css"/>
-		<link rel="Stylesheet" href="styles/shThemeRDark.css"/>
-		<link rel="stylesheet" href="styles/style.css">
+		<link rel="Stylesheet" href="styles/css/normalize.css"/>
+		<link rel="Stylesheet" href="styles/css/shCoreRDark.css"/>
+		<link rel="Stylesheet" href="styles/css/shThemeRDark.css"/>
+		<link rel="stylesheet" href="styles/css/style.css">
 
 		<!-- JS -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -412,8 +413,79 @@
 									<li>"-" - to separate words in class names</li>
 								</ul>
 
-								<p>Assigning classes you need to avoid adding dozens of different classes to a single element. Reduce number of classes if possible without affecting code flexibility and ease. </p>
+								<p>Assigning classes you need to avoid adding dozens of different classes to a single element. Reduce number of classes if possible without affecting code flexibility and ease. </p>				
+							</article>
 
+							<article id="recommended_class_names">
+								<h3>Recommended class names</h4>
+								<p>Below you can see some recommendations on how to name classes for various markup elements.</p>
+
+								<h4>Main markup elements</h4>
+								<dl>
+									<dt>Header elements</dt>
+									<dd>top, header, logo, slogan, branding</dd>
+
+									<dt>Navigation</dt>
+									<dd>navigation, menu__navigation, navigation_item</dd>
+
+									<dt>Showcase</dt>
+									<dd>showcase, slider, showcase-block</dd>
+
+									<dt>Main content</dt>
+									<dd>main-content, main</dd>
+
+									<dt>Page</dt>
+									<dd>page, page__contacts, page__blog</dd>
+
+									<dt>Footer</dt>
+									<dd>footer, copyright</dd>
+								</dl>
+
+								<h4>Listings</h4>
+								<dl>
+									<dt>Product listing</dt>
+									<dd>product-listing, product-listing__new, product-listing__bestsellers, product-listing__latest</dd>									
+
+									<dt>Categories listing</dt>
+									<dd>categories-listing, categories-listing__featured-collections</dd>									
+
+									<dt>Post listing</dt>
+									<dd>posts-listing, posts-listing__recent, posts-listing__news, posts-listing__blog, posts-grid, posts-list (posts-listing__news posts-grid)</dd>
+								</dl>
+
+
+								<h4>Page specific classes</h4>
+								<p>page_heading, page_title, page_subtitle, page_content</p>
+								<dl>
+									<dt></dt>
+									<dd></dd>
+								</dl>
+
+								<h4>Product/Post/Category specific classes</h4>
+								<dl>
+									<dt>Product</dt>
+									<dd>product, product_title, product_img, product_desc, product_price, product_button, product_links</dd>
+
+									<dt>Category</dt>
+									<dd>category, category_title, category_img etc</dd>
+
+									<dt>Post</dt>
+									<dd>post, article, post_title, post_img, post_date, post_author, post_category, post_excerpt, post_link, post_comments</dd>
+								</dl>
+
+								<h4>Custom blocks</h4>
+								<p>For custom blocks use block title as a basis for the block modificator. For example: services block will have a class custom-block__services</p>
+								<p>banner, banner_image, banner_link</p>
+
+								<h4>Blocks (block, widget, module, box)</h4>
+								<ul>
+									<li>block-currencies, block-currencies__header, block-currencies__aside</li>
+									<li>block-search, block-search__header, block-search__aside</li>
+									<li>block-cart</li>
+									<li>block-languages</li>
+								</ul>
+
+								<p>In case CMS has some default class names for modules markup - add recommended styles to default ones.</p>
 							</article>
 
 
@@ -917,6 +989,7 @@
 										<li><a href="#css_validation">CSS validation</a></li>
 										<li><a href="#formatting">Formatting</a></li>
 										<li><a href="#selector_names">Selector naming rules</a></li>
+										<li><a href="#recommended_class_names">Recommended class names</a></li>
 										<li><a href="#type_selectors">Type selectors</a></li>
 										<li><a href="#selector_nesting">Nesting</a></li>
 										<li><a href="#units">Units</a></li>
