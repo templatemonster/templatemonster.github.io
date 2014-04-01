@@ -8,3 +8,21 @@ dl dd {
 .class-names {
   margin-left: 2em;
 }
+/*========================================================
+                    1. General styles
+=========================================================*/
+a:focus {
+  outline: none;
+}
+/* TOC */
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.toc-list li a span {
+  padding-right: 0.5em;
+}
+.toc-list > li {
+  margin-bottom: 1em;
+}
